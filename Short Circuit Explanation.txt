@@ -1,0 +1,14 @@
+
+while (i < size && strcmp(item_list[i].sku, sku) != 0)
+
+
+This is safe as it ensure we do not go beyond the memeory bounds.
+Becuase first we check i < size then execute strcmp(item_list[i].sku, sku)
+
+Now other way around
+
+while (strcmp(item_list[i].sku, sku) != 0 && i < size)
+
+First checks --> strcmp(item_list[i].sku, sku) != 0
+Then check: i < size
+If i == size before this condition it tries to access item_list[size].sku which is an invalid memory access
